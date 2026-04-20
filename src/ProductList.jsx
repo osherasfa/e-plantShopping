@@ -4,6 +4,9 @@ import CartItem from './CartItem';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [cartItems, setCartItems] = useState();
+
+    const calculateTotalQuantity = () => { return cartItems ? cartItems.reduce((total, item) => total + item.quantity, 0) : 0; };
 
     const plantsArray = [
         {
